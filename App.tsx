@@ -1,13 +1,22 @@
 import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import HomeScreen  from './src/screens/Home'
+import { Video } from 'expo-av'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <HomeScreen />
+      <Text>Let us watch tv!</Text>
+      <Video
+        source={{ uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+        rate={1.0}
+        volume={1.0}
+        isMuted={false}
+        resizeMode="cover"
+        shouldPlay
+        isLooping
+        style={{ width: '100%', height: 300 }}
+      />
       <StatusBar style="auto" />
     </View>
   )
