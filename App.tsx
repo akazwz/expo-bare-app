@@ -1,12 +1,13 @@
 import React from 'react'
+import { useColorScheme } from 'react-native'
 import AppLoading from 'expo-app-loading'
 import { useFonts as useSansSC, NotoSansSC_500Medium } from '@expo-google-fonts/noto-sans-sc'
 import { useFonts as useSerifSC, NotoSerifSC_500Medium } from '@expo-google-fonts/noto-serif-sc'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Ionicons } from '@expo/vector-icons'
 import HomeScreen from './src/screens/Home'
 import VideoScreen from './src/screens/Video'
-import { useColorScheme } from 'react-native'
 
 const Tab = createBottomTabNavigator()
 
@@ -24,6 +25,17 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName
+          if (route.name === 'Home') {
+            iconName = focused
+              ? 'ios-home'
+              : 'ios-home-outline'
+          } else if (route.name === 'Video') {
+            iconName = focused ? 'ios-videocam' : 'ios-videocam-outline'
+          }
+          return <Ionicons name={iconName} size={size} color={color} />
+        },
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'grey',
         tabBarStyle: {
