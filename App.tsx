@@ -2,11 +2,23 @@ import { StatusBar } from 'expo-status-bar'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Video } from 'expo-av'
+import AppLoading from 'expo-app-loading'
+import { useFonts as useSansSC, NotoSansSC_500Medium } from '@expo-google-fonts/noto-sans-sc'
+import { useFonts as useSerifSC, NotoSerifSC_500Medium } from '@expo-google-fonts/noto-serif-sc'
 
 export default function App() {
+  let [fontsSansSCLoaded] = useSansSC({ NotoSansSC_500Medium })
+  let [fontsSerifSCLoaded] = useSerifSC({ NotoSerifSC_500Medium })
+
+  if (!fontsSansSCLoaded || !fontsSerifSCLoaded) {
+    return <AppLoading />
+  }
+
   return (
     <View style={styles.container}>
       <Text>Let us watch tv!</Text>
+      <Text style={{ fontFamily: 'NotoSansSC_500Medium', fontSize: 40 }}>一起看电视</Text>
+      <Text style={{ fontFamily: 'NotoSerifSC_500Medium', fontSize: 40 }}>一起看电视</Text>
       <Video
         source={{ uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
         rate={1.0}
