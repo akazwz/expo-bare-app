@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Ionicons } from '@expo/vector-icons'
 import HomeScreen from './src/screens/Home'
 import VideoScreen from './src/screens/Video'
+import { StatusBar } from 'expo-status-bar'
 
 const Tab = createBottomTabNavigator()
 
@@ -24,6 +25,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      <StatusBar
+        translucent={true}
+        style={isDark ? 'light' : 'dark'}
+      />
       <Tab.Navigator screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName

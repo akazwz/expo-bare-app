@@ -1,12 +1,11 @@
 import React from 'react'
-import { StatusBar, Text, useColorScheme, View } from 'react-native'
+import { Text, useColorScheme, View } from 'react-native'
 import { Video } from 'expo-av'
 
 const VideoScreen = () => {
   const isDark = useColorScheme() === 'dark'
   return (
     <View style={{ flex: 1, backgroundColor: isDark ? 'black' : 'white' }}>
-      <StatusBar translucent={true} barStyle={isDark ? 'dark-content' : 'light-content'} />
       <Text style={{ fontSize: 40 }}>视频 Video</Text>
       <Video
         source={{ uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
