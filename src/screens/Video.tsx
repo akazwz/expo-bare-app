@@ -1,4 +1,3 @@
-import React from 'react'
 import { Text, useColorScheme, View } from 'react-native'
 import { Video } from 'expo-av'
 
@@ -6,7 +5,10 @@ const VideoScreen = () => {
   const isDark = useColorScheme() === 'dark'
   return (
     <View style={{ flex: 1, backgroundColor: isDark ? 'black' : 'white' }}>
-      <Text style={{ fontSize: 40 }}>视频 Video</Text>
+      <Text
+        style={{ color: isDark ? 'white' : 'black', fontFamily: 'NotoSerifSC_500Medium', fontSize: 40 }}>
+        视频 Video
+      </Text>
       <Video
         source={{ uri: 'https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
         rate={1.0}

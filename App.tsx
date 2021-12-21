@@ -1,5 +1,5 @@
-import React from 'react'
 import { useColorScheme } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
 import AppLoading from 'expo-app-loading'
 import { Ionicons } from '@expo/vector-icons'
 import { NavigationContainer } from '@react-navigation/native'
@@ -8,7 +8,7 @@ import { useFonts as useSansSC, NotoSansSC_500Medium } from '@expo-google-fonts/
 import { useFonts as useSerifSC, NotoSerifSC_500Medium } from '@expo-google-fonts/noto-serif-sc'
 import HomeScreen from './src/screens/Home'
 import VideoScreen from './src/screens/Video'
-import { StatusBar } from 'expo-status-bar'
+import SettingScreen from './src/screens/Setting'
 
 const Tab = createBottomTabNavigator()
 
@@ -62,6 +62,18 @@ export default function App() {
         <Tab.Screen
           name="Video"
           component={VideoScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: isDark ? 'black' : 'white',
+            },
+            headerTitleStyle: {
+              color: isDark ? 'white' : 'black',
+            },
+          }}
+        />
+        <Tab.Screen
+          name="Setting"
+          component={SettingScreen}
           options={{
             headerStyle: {
               backgroundColor: isDark ? 'black' : 'white',
