@@ -32,12 +32,22 @@ export default function App() {
       <Tab.Navigator screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName
-          if (route.name === 'Home') {
-            iconName = focused
-              ? 'ios-home'
-              : 'ios-home-outline'
-          } else if (route.name === 'Video') {
-            iconName = focused ? 'ios-videocam' : 'ios-videocam-outline'
+          switch (route.name) {
+            case 'Home':
+              iconName = focused
+                ? 'ios-home'
+                : 'ios-home-outline'
+              break
+            case 'Video':
+              iconName = focused
+                ? 'ios-videocam'
+                : 'ios-videocam-outline'
+              break
+            case 'Setting':
+              iconName = focused
+                ? 'ios-settings'
+                : 'ios-settings-outline'
+              break
           }
           return <Ionicons name={iconName} size={size} color={color} />
         },
