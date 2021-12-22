@@ -1,1 +1,1 @@
-# expo-bare-app
+# expo- app
